@@ -19,26 +19,26 @@ Print a message:
 "There are <count> different telephone numbers in the records."
 """
 
-phone_numbers_set = []
+telephone_numbers = []
 
 for text in texts:
     incoming_number = text[0]
     receiving_number = text[1]
 
-    if incoming_number not in phone_numbers_set:
-        phone_numbers_set.append(incoming_number)
+    if incoming_number not in telephone_numbers:
+        telephone_numbers.append(incoming_number)
 
-    if receiving_number not in phone_numbers_set:
-        phone_numbers_set.append(receiving_number)
+    if receiving_number not in telephone_numbers:
+        telephone_numbers.append(receiving_number)
 
 for call in calls:
     incoming_number = call[0]
-    receiving_number = call[0]
+    receiving_number = call[1]
 
-    if incoming_number not in phone_numbers_set:
-        phone_numbers_set.append(incoming_number)
+    if incoming_number not in telephone_numbers:
+        telephone_numbers.append(incoming_number)
 
-    if receiving_number not in phone_numbers_set:
-        phone_numbers_set.append(receiving_number)
+    if receiving_number not in telephone_numbers:
+        telephone_numbers.append(receiving_number)
 
-print(f"There are {len(phone_numbers_set)} different telephone numbers in the records.")
+print("There are {} different telephone numbers in the records.".format(len(telephone_numbers)))
