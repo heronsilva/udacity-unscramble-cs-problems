@@ -21,31 +21,26 @@ Print a message:
 September 2016.".
 """
 
-total_time_by_phone = {}
+call_time_by_phone = {}
 
 for call in calls:
     incoming_number = call[0]
-    receiving_number = call[0]
+    receiving_number = call[1]
+
     incoming_number_time = int(call[3])
     receiving_number_time = int(call[3])
 
-    if incoming_number not in total_time_by_phone:
-        total_time_by_phone[incoming_number] = incoming_number_time
+    if incoming_number not in call_time_by_phone:
+        call_time_by_phone[incoming_number] = incoming_number_time
     else:
-        total_time_by_phone[incoming_number] += incoming_number_time
+        call_time_by_phone[incoming_number] += incoming_number_time
 
-    if receiving_number not in total_time_by_phone:
-        total_time_by_phone[receiving_number] = receiving_number_time
+    if receiving_number not in call_time_by_phone:
+        call_time_by_phone[receiving_number] = receiving_number_time
     else:
-        total_time_by_phone[receiving_number] += receiving_number_time
+        call_time_by_phone[receiving_number] += receiving_number_time
 
-current_longest_time = 0
-longest_time_phone_number = {}
+max_time_spent = max(call_time_by_phone, key=call_time_by_phone.get)
 
-for key in total_time_by_phone:
-    if total_time_by_phone[key] > current_longest_time:
-        current_longest_time = total_time_by_phone[key]
-        longest_time_phone_number = {"phone_number": key, "total_time": total_time_by_phone[key]}
-
-print(f"{longest_time_phone_number['phone_number']} spent the longest time, {longest_time_phone_number['total_time']} "
-      f"seconds, on the phone during September 2016.")
+print("{0} spent the longest time, {1} seconds, on the phone during September 2016.".format(
+    max_time_spent, call_time_by_phone.get(max_time_spent)))

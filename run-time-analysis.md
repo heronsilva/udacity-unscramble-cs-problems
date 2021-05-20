@@ -44,13 +44,11 @@ Steps:
 - iterate over the calls list: O(n)
   - for both numbers, check if it's already set as a key: O(2n)
     - add or update the current phone time: O(n)
-- iterate over the dictionary keys (phone numbers): O(n)
-  - compare the current call time with the current longest time: O(1)
-    - update the current value of the `longest_time_phone_number` dictionary: O(n)
-  
+- get the max value of the phone numbers in the dictionary: O(n)
+
 Complexity: Linear.
 
-Worst case analysis: O((n * (2n * 1n)) + (n * (1 * n))) -> O(n)
+Worst case analysis: O(n * (2n * 1n)) + n) -> O(n)
 
 ### Task 3:
 
