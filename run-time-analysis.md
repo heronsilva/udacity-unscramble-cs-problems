@@ -28,27 +28,27 @@ Worst case analysis: O(1).
 ### Task 1:
 
 Steps:
-- iterate over both lists: O(2n)
-  - search the _unique list_ for both incoming and receiving numbers: O(2n)
+- iterate over both lists: O(n)
+  - search the _unique list_ for both incoming and receiving numbers: O(n)
     - add the new number to the _unique list_: O(1)
 - get the _unique_list_ size: O(1)
 
-Complexity: Linear.
+Complexity: Quadratic.
 
-Worst case analysis: O(2n * (2n * 1)) -> O(n).
+Worst case analysis: O((n^2 + 1) * 2) -> O(n^2).
 
 
 ### Task 2:
 
 Steps:
 - iterate over the calls list: O(n)
-  - for both numbers, check if it's already set as a key: O(2n)
-    - add or update the current phone time: O(n)
+  - for both numbers, check if it's already set as a key: O(2)
+    - add or update the current phone time: O(1)
 - get the max value of the phone numbers in the dictionary: O(n)
 
 Complexity: Linear.
 
-Worst case analysis: O(n * (2n * 1n)) + n) -> O(n)
+Worst case analysis: O(n + 2 +1 + n) -> O(2n + 3) -> O(n)
 
 ### Task 3:
 
@@ -59,13 +59,13 @@ Steps:
   - check if the current call was performed from Bangalore: O(1)
   - check if the receiving number's area code or prefix matches one of the three patterns specified: O(3)
   - extract the code/prefix from the phone number: O(1)
-  - search our area codes _unique list_ for the current code/prefix: O(n)
+  - search the area codes list for the current code/prefix: O(n)
     - add the new code/prefix to the _unique_list_: O(1)
 - sort the area codes list: O(n log n)
 
-Complexity: Quasilinear.
+Complexity: Linear.
 
-Worst case analysis: O(n * (1 + 3 + 1 + (n * 1)) + n log n) -> O(n log n)
+Worst case analysis: O((n * (1 + 3 + 1 + 1n)) + n log n) -> O(n)
 
 #### Part B
 
@@ -77,23 +77,22 @@ Steps:
 
 Complexity: Linear.
 
-Worst case analysis: O((n * (1 + 2)) + 1) -> O(n)
+Worst case analysis: O((n * 3) + 1) -> O(n)
 
 ### Task 4:
 
 Steps:
-- iterate over both lists: O(2n)
+- iterate over both lists: O(n)
+  - check if the call incoming number exists in the callers list: O(n)
   - separate incoming and receiving numbers, for both calls and texts: O(4)
-  - check if the call incoming number matches the telemarketing line number pattern: O(1)
-- iterate over the calling incoming numbers list: O(n)
+- iterate over the callers list: O(n)
   - check if the phone number is present on the other lists (three searches): O(3n)
-  - search the _unique list_ to avoid duplicates: O(n)
-    - add the new phone number: O(1)
+    - remove the existing phone number: O(1)
 - sort the possible telemarketers list: O(n log n) 
 
-Complexity: Quasilinear.
+Complexity: Quadratic.
 
-Worst case analysis: O((2n * (4 + 1)) + (((n * 3) + (n * 1)) + n log n)) -> O(n log n)
+Worst case analysis: O((n^2 + 4) + (n^2 * 3 + 1) + n log n) -> O(n^2)
 
 
 ## References:
