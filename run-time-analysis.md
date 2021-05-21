@@ -65,7 +65,7 @@ Steps:
 
 Complexity: Linear.
 
-Worst case analysis: O((n * (1 + 3 + 1 + 1n)) + n log n) -> O(n)
+Worst case analysis: O((n * (5 + n)) + n log n) -> O(n^2 + n log n) -> O(n^2)
 
 #### Part B
 

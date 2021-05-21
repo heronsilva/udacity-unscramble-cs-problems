@@ -57,7 +57,7 @@ mobile_line_area_code_pattern = r"^(\d{4})"
 telemarketing_line_number_pattern = r"^140"
 telemarketing_line_area_code_pattern = r"(^140)"
 
-codes_called_from_bangalore_set = []
+codes_called_from_bangalore = []
 
 
 def add_area_code(phone_number, pattern):
@@ -66,8 +66,8 @@ def add_area_code(phone_number, pattern):
     if search_result:
         area_code = search_result.group(1)
 
-        if area_code not in codes_called_from_bangalore_set:
-            codes_called_from_bangalore_set.append(area_code)
+        if area_code not in codes_called_from_bangalore:
+            codes_called_from_bangalore.append(area_code)
 
 
 def get_called_area_codes_from_bangalore():
@@ -88,9 +88,9 @@ def get_called_area_codes_from_bangalore():
             if code_prefix_pattern:
                 add_area_code(receiving_number, code_prefix_pattern)
 
-    sorted_codes_called_from_bangalore_set = sorted(codes_called_from_bangalore_set)
+    sorted_codes_called_from_bangalore = sorted(codes_called_from_bangalore)
 
-    print("The numbers called by people in Bangalore have codes:", *sorted_codes_called_from_bangalore_set, sep="\n")
+    print("The numbers called by people in Bangalore have codes:", *sorted_codes_called_from_bangalore, sep="\n")
 
 
 def get_bangalore_local_calls_percentage():
@@ -105,7 +105,7 @@ def get_bangalore_local_calls_percentage():
             total_calls += 1
 
         if re.match(bangalore_fixed_area_code_pattern, incoming_number) \
-                and re.match(bangalore_fixed_area_code_pattern, receiving_number):
+            and re.match(bangalore_fixed_area_code_pattern, receiving_number):
             total_local_calls += 1
 
     percentage = (total_local_calls * 100) / total_calls
