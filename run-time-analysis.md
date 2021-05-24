@@ -100,3 +100,9 @@ Worst case analysis: O((n^2 + 4) + (n^2 * 3 + 1) + n log n) -> O(n^2)
 - https://towardsdatascience.com/understanding-time-complexity-with-python-examples-2bda6e8158a7
 - https://wiki.python.org/moin/TimeComplexity
 - https://www.bigocheatsheet.com/
+
+## Submission review history:
+
+1: https://review.udacity.com/#!/reviews/2946164
+2: https://review.udacity.com/#!/reviews/2948244
+3: https://review.udacity.com/#!/reviews/2949833
