@@ -3,6 +3,7 @@ Read file into texts and calls.
 It's ok if you don't understand how to read files
 """
 import csv
+from collections import defaultdict
 
 with open('texts.csv', 'r') as f:
     reader = csv.reader(f)
@@ -21,7 +22,7 @@ Print a message:
 September 2016.".
 """
 
-call_time_by_phone = {}
+call_time_by_phone = defaultdict(lambda: 0)
 
 for call in calls:
     incoming_number = call[0]
@@ -30,15 +31,8 @@ for call in calls:
     incoming_number_time = int(call[3])
     receiving_number_time = int(call[3])
 
-    if incoming_number not in call_time_by_phone:
-        call_time_by_phone[incoming_number] = incoming_number_time
-    else:
-        call_time_by_phone[incoming_number] += incoming_number_time
-
-    if receiving_number not in call_time_by_phone:
-        call_time_by_phone[receiving_number] = receiving_number_time
-    else:
-        call_time_by_phone[receiving_number] += receiving_number_time
+    call_time_by_phone[incoming_number] += incoming_number_time
+    call_time_by_phone[receiving_number] += receiving_number_time
 
 max_time_spent = max(call_time_by_phone, key=call_time_by_phone.get)
 
